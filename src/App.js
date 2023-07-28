@@ -5,6 +5,7 @@ import Login from './components/login/Login';
 import List from './components/list/List';
 import New from './components/new/New';
 import Single from './components/single/Single';
+import { userInputs } from './formSource';
 
 function App() {
   // const navigate = useNavigate();
@@ -21,7 +22,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="patients">
             <Route index element={<List />} />
-            <Route path="new" element={<New />} />
+            <Route path="new" element={<New inputs={userInputs}/>} />
             <Route path=":patientId" element={<Single />} />
 
           </Route>

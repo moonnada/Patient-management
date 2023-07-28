@@ -1,9 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react';
+import './new.scss';
+import Sidebar from '../sidebar/Sidebar';
+import Navbar from '../navbar/Navbar';
 
-const New = () => {
+const New = ({ inputs }) => {
   return (
-    <div>New</div>
-  )
-}
+    <div className="new">
+      <Sidebar />
+      <div className="newContainer">
+        <Navbar />
+        <div className="top">
+          <h1>Add New Patient</h1>
+        </div>
+        <div className="bottom">
+          <div className="left">
+            
+          </div>
+          <div className="right">
+            <form>
+              {inputs.map((input) => (
+                <div className="formInput" key={input.id}>
+                  <label>{input.label}</label>
+                  <input type={input.type} />
+                </div>
+              ))}
 
-export default New
+              <button>Add</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default New;
