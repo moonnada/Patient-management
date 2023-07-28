@@ -8,11 +8,13 @@ export const userColumns = [
       return <div className="">{params.row.username}</div>;
     },
   },
-  { field: 'birthdate', headerName: 'Date of Birth', width: 200 },
+  { field: 'birthdate', headerName: 'Date of Birth', width: 150 },
+  { field: 'age', headerName: 'Age', width: 100 },
+
   {
     field: 'status',
     headerName: 'Status',
-    width: 180,
+    width: 130,
     renderCell: (params) => {
       return (
         <div className={`cellWithStatus ${params.row.status}`}>
@@ -130,4 +132,5 @@ export const userRows = [
     status: 'Churned',
     age: 65,
   },
+  
 ];

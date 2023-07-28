@@ -13,15 +13,17 @@ const New = ({ inputs }) => {
           <h1>Add New Patient</h1>
         </div>
         <div className="bottom">
-          <div className="left">
-            
-          </div>
+          <div className="left"></div>
           <div className="right">
             <form>
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
-                  <input type={input.type} />
+                  {input.type === 'textarea' ? (
+                    <textarea name={input.id} />
+                  ) : (
+                    <input type={input.type} />
+                  )}
                 </div>
               ))}
 

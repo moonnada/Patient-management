@@ -41,7 +41,7 @@ const Chart = () => {
           <YAxis />
           <Tooltip />
           {/* Update the dataKey and add stackId */}
-          <Area type="monotone" dataKey="Total" stroke="#8884d8" fill="#8884d8" stackId="1" />
+          <Area type="monotone" dataKey="Total" stroke="#A076F9" fill="#8CC0DE" stackId="1" />
         </AreaChart>
       </ResponsiveContainer>
     </div>

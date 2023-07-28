@@ -4,13 +4,13 @@
   min-height: 100vh;
   background-color: white;
   .top {
-    height: 50px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
 
     .logo {
-      font-size: 20px;
+      font-size: 30px;
       font-weight: bold;
       color: #6439ff;
     }
@@ -22,6 +22,7 @@
   }
   .center {
     padding-left: 10px;
+    flex: 1;
 
     ul {
       list-style: none;
@@ -34,13 +35,14 @@
       align-items: center;
       padding: 5px;
       cursor: pointer;
+      height: 50px;
 
       &:hover {
         background-color: #ece8ff;
       }
 
       .icon {
-        font-size: 18px;
+        font-size: 25px;
         color: #7451f8;
       }
 
