@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { auth, provider } from '../firebase';
+import { auth, provider } from '../../firebase';
 import { signInWithPopup } from 'firebase/auth';
-import Home from './Home';
+import Home from '../home/Home';
 
 const Login = () => {
-  const [value, setValue] = useState<string>('');
+  const [value, setValue] = useState('');
   const handleGoogle = async () => {
     signInWithPopup(auth, provider).then((data) => {
       setValue(data.user?.email || '');
