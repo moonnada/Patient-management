@@ -1,0 +1,51 @@
+.datatable {
+  height: 700px;
+  padding: 20px;
+
+  .cellWithTable {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.cellWithStatus {
+  padding: 5px;
+  border-radius: 5px;
+
+  &.Inquiry {
+    background-color: rgba(10, 186, 245, 0.485);
+    color: rgb(51, 106, 245);
+  }
+  &.Onboarding {
+    background-color: rgba(81, 249, 48, 0.627);
+    color: lightseagreen;
+  }
+  &.Active {
+    background-color: rgba(255, 217, 0, 0.512);
+    color: goldenrod;
+  }
+  &.Churned {
+    background-color: rgba(255, 0, 0, 0.268);
+    color: crimson;
+  }
+}
+
+.cellAction {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  .viewButton {
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: darkblue;
+    border: 1px dotted rgba(0, 0, 139, 0.596);
+  }
+
+  .deleteButton {
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: crimson;
+    border: 1px dotted rgba(220, 20, 60, 0.6);
+  }
+}

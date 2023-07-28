@@ -4,6 +4,7 @@ import Home from './components/home/Home';
 import Login from './components/login/Login';
 import List from './components/list/List';
 import New from './components/new/New';
+import Single from './components/single/Single';
 
 function App() {
   // const navigate = useNavigate();
@@ -18,9 +19,11 @@ function App() {
         <Route path="/">
           <Route index element={<Home />} />
           <Route path="login" element={<Login />} />
-          <Route path="users">
+          <Route path="patients">
             <Route index element={<List />} />
             <Route path="new" element={<New />} />
+            <Route path=":patientId" element={<Single />} />
+
           </Route>
         </Route>
       </Routes>
