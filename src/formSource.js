@@ -1,36 +1,36 @@
 export const userInputs = [
   {
-    id: 1,
+    id: 'fullname',
     label: 'Full name',
     type: 'text',
   },
   {
-    id: 2,
+    id: 'dob',
     label: 'Date of Birth',
     type: 'text',
   },
   {
-    id: 3,
+    id: 'age',
     label: 'Age',
     type: 'mail',
   },
   {
-    id: 4,
+    id: 'status',
     label: 'Status',
     type: 'text',
   },
   {
-    id: 5,
+    id: 'patientAddress',
     label: 'Patient Address',
     type: 'text',
   },
   {
-    id: 6,
+    id: 'familyAddress',
     label: 'Family Address',
     type: 'text',
   },
   {
-    id: 7,
+    id: 'memo',
     label: 'Memo',
     type: 'textarea',
   },
