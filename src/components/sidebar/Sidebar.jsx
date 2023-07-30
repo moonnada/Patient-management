@@ -3,8 +3,12 @@ import './sidebar.scss';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase';
 const Sidebar = () => {
+  const navitage = useNavigate();
+
   return (
     <div className="sidebar">
       <div className="top">
@@ -28,7 +32,20 @@ const Sidebar = () => {
         </Link>
         <li>
           <LogoutIcon className="icon" />
-          <span>Logout</span>
+          <span
+            onClick={() =>
+              signOut(auth)
+                .then(() => {
+                  navitage('/login');
+                  console.log('Sign-out successful.');
+                })
+                .catch((err) => {
+                  console.log(err);
+                })
+            }
+          >
+            Logout
+          </span>
         </li>
       </div>
     </div>

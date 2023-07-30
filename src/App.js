@@ -1,19 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Home from './components/home/Home';
 import List from './components/list/List';
 import New from './components/new/New';
 import Single from './components/single/Single';
 import Login from './components/auth/Login';
-import { userInputs } from './formSource';
 import { AuthContext } from './components/auth/AuthContext';
 function App() {
   const { currentUser } = useContext(AuthContext);
+  const [patients, setPatients] = useState([]);
+
   const RequireAuth = ({ children }) => {
     return currentUser ? children : <Navigate to="/login" />;
   };
 
-  console.log(currentUser);
+  console.log('currentUser', currentUser);
+
   return (
     // <Routes>
     //   <Route path="/" element={<Login />} />
@@ -44,7 +46,7 @@ function App() {
               path="new"
               element={
                 <RequireAuth>
-                  <New inputs={userInputs} />{' '}
+                  <New />{' '}
                 </RequireAuth>
               }
             />

@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Sidebar from '../sidebar/Sidebar';
 import Navbar from '../navbar/Navbar';
 import './single.scss';
+import { doc } from 'firebase/firestore';
+import { useParams } from 'react-router-dom';
+import { db } from '../../firebase';
 const Single = () => {
+  const { id } = useParams();
+  const [editMemo, setEditMemo] = useState(false);
+  const getPatient = doc(db, `patients/${id}`);
+  console.log('getPatient !', getPatient);
   return (
     <div className="single">
       <Sidebar />
@@ -10,8 +17,8 @@ const Single = () => {
         <Navbar />
         <div className="top">
           <div className="left">
-            <div className="editButton">Edit</div>
-            <h1 className="title">Information</h1>
+            <div className="editButton" onClick={()=> setEditMemo(!editMemo)}>Edit</div>
+            <h1 className="title">Patient Information</h1>
             <div className="item">
               <div className="details">
                 <h2 className="itemTitle">Jone Doe</h2>

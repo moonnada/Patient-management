@@ -4,61 +4,41 @@
 
   .newContainer {
     flex: 6;
+    .create {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
 
+      label {
+        text-align: left;
+        display: block;
+      }
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 6px 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        box-sizing: border-box;
+        display: block;
+      }
+      button {
+        background: rgb(77, 77, 77);
+        color: #fff;
+        border: 0;
+        padding: 8px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    }
     .top,
     .bottom {
       -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
       box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
       padding: 10px;
       margin: 20px;
-      display: flex;
-
-      h1 {
-        color: lightgray;
-        font-size: 20px;
-      }
-      .left {
-        flex: 1;
-      }
-
-      .right {
-        flex: 2;
-
-        .create {
-          max-width: 400px;
-          margin: 0 auto;
-          text-align: center;
-
-          label {
-            text-align: left;
-            display: block;
-          }
-          input,
-          textarea,
-          select {
-            width: 100%;
-            padding: 6px 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            box-sizing: border-box;
-            display: block;
-          }
-          button {
-            background: rgb(77, 77, 77);
-            color: #fff;
-            border: 0;
-            padding: 8px;
-            border-radius: 8px;
-            cursor: pointer;
-          }
-        }
-
-        .create h2 {
-          font-size: 20px;
-          color: rgb(77, 77, 77);
-          margin-bottom: 30px;
-        }
-      }
+      text-align: center;
     }
   }
 }

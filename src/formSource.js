@@ -12,7 +12,7 @@ export const userInputs = [
   {
     id: 'age',
     label: 'Age',
-    type: 'mail',
+    type: 'number',
   },
   {
     id: 'status',
