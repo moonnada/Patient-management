@@ -1,18 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './new.scss';
 import Sidebar from '../sidebar/Sidebar';
 import Navbar from '../navbar/Navbar';
-import {
-  doc,
-  serverTimestamp,
-  setDoc,
-  addDoc,
-  collection,
-} from 'firebase/firestore';
+import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 
-const New = ({ inputs }) => {
+const New = () => {
   const [fullname, setFullname] = useState('');
   const [dateofBirth, setDateofBirth] = useState('');
   const [age, setAge] = useState('');
@@ -22,6 +16,27 @@ const New = ({ inputs }) => {
   const [memo, setMemo] = useState('');
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // Calculate the age based on the selected date of birth
+    const calculateAge = () => {
+      if (!dateofBirth) return; // Return if dateofBirth is empty
+      const birthDate = new Date(dateofBirth);
+      const today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+      if (
+        monthDiff < 0 ||
+        (monthDiff === 0 && today.getDate() < birthDate.getDate())
+      ) {
+        age--;
+      }
+      setAge(age.toString()); // Update the age state with the calculated age
+    };
+
+    calculateAge(); // Call the calculateAge function when dateofBirth changes
+  }, [dateofBirth]);
+
+  //Add new patient to the database
   const handleAdd = async (e) => {
     e.preventDefault();
     try {
@@ -63,13 +78,7 @@ const New = ({ inputs }) => {
               value={dateofBirth}
               onChange={(e) => setDateofBirth(e.target.value)}
             />
-            <label>Age</label>
-            <input
-              type="number"
-              required
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
-            />
+
             <label>Status</label>
             <select
               required

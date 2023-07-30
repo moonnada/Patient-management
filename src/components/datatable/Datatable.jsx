@@ -19,12 +19,14 @@ const Datatable = () => {
   const [patients, setPatients] = useState([]);
   const [patientRows, setPatientRows] = useState(patients);
 
+  // Fetch all patients from the "patients" collection in Firestore and update the "patients" state
   useEffect(() => {
     onSnapshot(collection(db, 'patients'), (snapshot) => {
       setPatients(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     });
   }, []);
-  
+
+  // Fetch the individual patient data based on the provided "id" and update the "patient" state
   useEffect(() => {
     const fetchPatient = async () => {
       const docSnap = await getDoc(getPatient);
@@ -41,6 +43,7 @@ const Datatable = () => {
     fetchPatient();
   }, [id]);
 
+  // Fetch the list of all patients again and update the "patientRows" state
   useEffect(() => {
     const fetchPatientRows = async () => {
       const patientCollection = collection(db, 'patients');
@@ -53,13 +56,15 @@ const Datatable = () => {
     };
     fetchPatientRows();
   }, []);
-
+  
+  // Function to handle the deletion of a patient based on the provided "id"
   const handleDelete = async (id) => {
     try {
       await deleteDoc(doc(db, 'patients', id));
       setPatientRows(patientRows.filter((item) => item.id !== id));
     } catch (err) {}
   };
+
   const patientColumns = [
     {
       field: 'fullname',
